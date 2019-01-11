@@ -1,0 +1,232 @@
+/*
+* Operations:
+	1. Insert --> @begining , @end , @beforeNode, @afterNode 
+	2. Delete --> @AtNode, @afterNode, @beforeNode,
+	3. Update -->  @Node,
+	4. Size --> size of list.
+	5. Display --> showList
+	6. conatains
+*
+*
+
+  ?? Is values in LL are unique
+*/
+
+public class Dll {
+	Node start;
+	Node end;
+	int size;
+
+	public Dll (){
+		this.start=null;
+		this.end=null;
+		this.size=0;
+	}
+
+
+	class Node{
+Node prevLink;
+Node nextLink;
+Object data;
+
+public Node(Node prevLink,Object data, Node nextLink)
+this.prevLink=prevLink;
+this.nextLink=nextLink;
+this.data=data;
+
+	}
+
+	//Insert : @Beginning 
+	public void insertAtBegining(Object data){
+		Node newLink = new Node(null,data,null);
+		//For a fresh new start
+		if(start ==null && end=null && size=0){
+			start = newLink;
+			end=start;
+			size++;}
+
+	// When List is not empty.
+			if(start != null && size >0){
+				newLink.data=data;
+				newLink.nextLink = start;
+				start.prevLink = newLink;
+				start = newLink;
+				size++;
+			}
+}
+
+//Size:
+public int size(){
+	return this.size;
+}
+
+
+
+// Insert : @End
+	public void insertAtEnd(Object data){
+			Node newLink = new Node(null,data,null);
+
+//For a fresh new start
+		if(end==null && size=0 && start==null){
+			start = newLink;
+			end=start;
+			size ++;
+		}
+
+		//If list is not empty
+		if(start != null && size!=0){
+			newLink.data = data;
+			end.nextLink = newLink;
+			end = newLink;
+			size++;
+		}
+
+	}
+
+
+public void contains(Object data){
+	if(size >0){
+}
+}
+
+
+	// Insert : @beforeNode
+	public void insertBeforeNode(Node node,Object data){
+
+		Node newLink  = new Node(null,data,null);
+
+		//TestCase:
+		/*
+		* 1. If ll is empty
+		* 2. Index doest not exist
+		* 3. If only start node exist
+		* 
+		* 
+		**/
+		try{
+
+		if(size >0 && start != null){
+
+
+		Node currentNode =  start.nextLink;
+		//Recursive Call to reach node.
+		while(currentNode !=null){
+
+			if(node!=null){
+
+				if(current.nextLink == node){
+					
+					newLink.nextLink = node;
+					newLink.prevLink=currentNode;
+					size++;
+				}
+							currentNode = current.nextLink;
+
+			}else {
+				throw new Exception();
+			}
+		}
+
+
+
+
+		}else{
+			Exception ee = new Exception();
+			ee.setMessage(" List is empty");
+			throw ee;
+		}
+
+
+		}catch(Exception e){
+			printStackTrace(e);
+
+		}
+
+
+	}
+
+
+		public void insertAfterNode(Node node,Object data){
+
+		Node newLink = new Node(null,data,null);
+/**
+*Test Case:
+	1. AfterNode Doest not Exist
+	2. If ll is empty
+	3. New Node in parameter is null;
+
+*
+*
+*/
+try{
+
+if(size >0 && start !=null){
+
+if(node != null){
+
+Node currentNode=start;
+
+if(start == end){
+	start.prevLink = newLink;
+	newLink.nextLink= start;
+	start = newLink;
+}else{
+
+
+
+while(currentNode.nextLink != null){
+
+	//What if the list has only start node
+if(currentNode == node){
+	node.nextLink = currentNode.nextLink;
+	currentNode.nextLink = node;
+	node.prevLink=currentNode;
+size++;
+
+}
+currentNode = currentNode.nextLink;
+
+}}
+}
+
+}else{
+	Exception nullNode = new Exception();
+	nullNode.setMessage("Node can not be null");
+	throw nullNode;
+
+}
+
+
+}else {
+	throw new Exception();
+}
+
+
+
+}catch(Exception e){
+	printStackTrace(e);
+}
+
+
+public void Display(){
+
+Node current = start;
+
+if(current !=null){
+int index=1;
+	do{
+		System.out.println("Data " + index + current.data);
+		index++;
+
+	}while(current.nextLink!=null)
+
+}else{
+	System.out.println("list is empty");
+}
+
+
+	}
+
+
+
+
